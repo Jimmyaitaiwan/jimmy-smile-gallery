@@ -82,10 +82,7 @@
     }
 
     .photo-item .meta {
-      padding: 8px 4px 4px;
-      font-size: 0.75rem;
-      color: #777;
-      letter-spacing: 0.05em;
+      display: none;
     }
 
     /* ── Lightbox ── */
@@ -106,9 +103,17 @@
 
     #lightbox img {
       max-width: 90vw;
-      max-height: 90vh;
+      max-height: 80vh;
       object-fit: contain;
       cursor: default;
+    }
+
+    #lightbox #lbCaption {
+      color: #888;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-align: center;
+      margin-top: 14px;
     }
 
     #lightbox .lb-close {
@@ -194,18 +199,18 @@
       </div>
     -->
 
-    <div class="photo-item" onclick="openLightbox('photos/IMG_5561.jpg')">
+    <div class="photo-item" onclick="openLightbox('photos/IMG_5561.jpg', '2026-05 · 從小就喜歡看鐵軌，尤其是變換車道的地方')">
       <div class="photo-wrap"><img src="photos/IMG_5561.jpg" alt=""></div>
       <div class="meta">2026-05 · 從小就喜歡看鐵軌，尤其是變換車道的地方</div>
     </div>
 
-    <div class="photo-item" onclick="openLightbox('photos/IMG_4494.jpg')">
+    <div class="photo-item" onclick="openLightbox('photos/IMG_4494.jpg', '2026-03 · 悠閒且成長的微小片刻 - Cold Beer遊戲開發')">
       <div class="photo-wrap"><img src="photos/IMG_4494.jpg" alt=""></div>
       <div class="meta">2026-03 · 悠閒且成長的微小片刻 - Cold Beer遊戲開發</div>
     </div>
 
     <!-- 範例佔位（可刪除） -->
-    <div class="photo-item" onclick="openLightbox('photos/1.jpeg')">
+    <div class="photo-item" onclick="openLightbox('photos/1.jpeg', '2026-02 · 虎尾一角')">
       <div class="photo-wrap"><img src="photos/1.jpeg" alt=""></div>
       <div class="meta">2026-02 · 虎尾一角</div>
     </div>
@@ -215,6 +220,7 @@
   <div id="lightbox" onclick="closeLightbox()">
     <span class="lb-close" onclick="closeLightbox()">×</span>
     <img id="lbImg" src="" alt="" onclick="event.stopPropagation()">
+    <p id="lbCaption" onclick="event.stopPropagation()"></p>
   </div>
 
   <hr class="divider">
@@ -243,8 +249,9 @@
   </div>
 
   <script>
-    function openLightbox(src) {
+    function openLightbox(src, caption) {
       document.getElementById('lbImg').src = src;
+      document.getElementById('lbCaption').textContent = caption || '';
       document.getElementById('lightbox').classList.add('active');
     }
     function closeLightbox() {
