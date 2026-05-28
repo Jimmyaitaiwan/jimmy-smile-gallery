@@ -57,11 +57,14 @@
     }
 
     .photo-item {
+      cursor: pointer;
+      background: #1a1a1a;
+    }
+
+    .photo-item .photo-wrap {
       aspect-ratio: 1 / 1;
       overflow: hidden;
-      cursor: pointer;
       position: relative;
-      background: #1a1a1a;
     }
 
     .photo-item img {
@@ -79,21 +82,10 @@
     }
 
     .photo-item .meta {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 20px 14px 12px;
-      background: linear-gradient(transparent, rgba(0,0,0,0.75));
+      padding: 8px 4px 4px;
       font-size: 0.75rem;
-      color: #bbb;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      color: #777;
       letter-spacing: 0.05em;
-    }
-
-    .photo-item:hover .meta {
-      opacity: 1;
     }
 
     /* ── Lightbox ── */
@@ -203,18 +195,18 @@
     -->
 
     <div class="photo-item" onclick="openLightbox('photos/IMG_5561.jpg')">
-      <img src="photos/IMG_5561.jpg" alt="">
+      <div class="photo-wrap"><img src="photos/IMG_5561.jpg" alt=""></div>
       <div class="meta">2026-05 · 從小就喜歡看鐵軌，尤其是變換車道的地方</div>
     </div>
 
     <div class="photo-item" onclick="openLightbox('photos/IMG_4494.jpg')">
-      <img src="photos/IMG_4494.jpg" alt="">
+      <div class="photo-wrap"><img src="photos/IMG_4494.jpg" alt=""></div>
       <div class="meta">2026-03 · 悠閒且成長的微小片刻 - Cold Beer遊戲開發</div>
     </div>
 
     <!-- 範例佔位（可刪除） -->
     <div class="photo-item" onclick="openLightbox('photos/1.jpeg')">
-      <img src="photos/1.jpeg" alt="">
+      <div class="photo-wrap"><img src="photos/1.jpeg" alt=""></div>
       <div class="meta">2026-02 · 虎尾一角</div>
     </div>
     
